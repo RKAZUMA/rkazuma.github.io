@@ -1,0 +1,343 @@
+/* Variables CSS */
+:root {
+    --primary-color: #2c3e50; /* Azul oscuro */
+    --secondary-color: #3498db; /* Azul brillante */
+    --accent-color: #e74c3c; /* Rojo para botones de acción */
+    --text-color: #333;
+    --light-gray: #f4f4f4;
+    --dark-gray: #7f8c8d;
+    --white-color: #fff;
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header - Hero Section */
+.hero {
+    background: url('images/hero_background.jpg') no-repeat center center/cover; /* Reemplaza con tu imagen de fondo */
+    color: var(--white-color);
+    text-align: center;
+    padding: 100px 20px 80px;
+    position: relative;
+}
+
+.hero::before { /* Overlay para mejorar la legibilidad del texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+    z-index: 0;
+}
+
+.hero > * { /* Asegura que el contenido esté por encima del overlay */
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el nav */
+    position: absolute; /* Para que quede encima del hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--white-color);
+}
+
+.navbar .logo img {
+    height: 40px; /* Tamaño de tu logo */
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--white-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* Hero Content */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 50px; /* Espacio debajo del nav */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.secondary-btn {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 2px solid var(--white-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+.whatsapp-btn {
+    background-color: #25D366; /* Color de WhatsApp */
+    color: var(--white-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    margin: 20px auto;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+.whatsapp-icon {
+    height: 24px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1); /* Para que el icono sea blanco */
+}
+
+/* Secciones generales */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* Sección de Servicios */
+.services-section {
+    background-color: var(--white-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+}
+
+.service-card ul {
+    margin-top: 15px;
+}
+
+.service-card li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.service-card .icon-check { /* Placeholder para un ícono de check */
+    width: 18px;
+    height: 18px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+/* Para el ícono de check, si no usas Font Awesome, puedes usar un simple ✓ */
+.service-card .icon-check::before {
+    content: '✓';
+}
+
+
+.cta-message {
+    font-size: 1.3em;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Sección de Contacto */
+.contact-section {
+    background-color: var(--light-gray);
+    padding-bottom: 80px;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .navbar .logo {
+        margin-bottom: 15px;
+    }
+    .nav-links {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    .whatsapp-btn {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
