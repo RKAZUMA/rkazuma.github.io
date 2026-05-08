@@ -10,6 +10,10 @@
 }
 
 /* Base */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -310,6 +314,10 @@ footer p {
     }
     .nav-links li {
         margin: 5px 0;
+    }
+
+    .hero-content {
+        padding-top: 80px;
     }
 
     .hero-content h1 {
