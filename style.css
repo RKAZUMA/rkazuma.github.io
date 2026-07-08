@@ -1,17 +1,33 @@
 /* Variables CSS */
 :root {
-    --primary-color: #2c3e50; /* Azul oscuro */
-    --secondary-color: #3498db; /* Azul brillante */
-    --accent-color: #e74c3c; /* Rojo para botones de acción */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
     --text-color: #333;
     --light-gray: #f4f4f4;
     --dark-gray: #7f8c8d;
     --white-color: #fff;
+    --focus-color: #3498db;
+    --focus-offset: 3px;
 }
 
 /* Base */
 html {
     scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 * {
@@ -32,6 +48,12 @@ a {
     color: var(--secondary-color);
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+}
+
 ul {
     list-style: none;
 }
@@ -41,31 +63,54 @@ img {
     height: auto;
 }
 
+/* Skip link */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border-radius: 0 0 5px 5px;
+    z-index: 2000;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 /* Header - Hero Section */
 .hero {
-    background: url('images/hero_background.jpg') no-repeat center center/cover; /* Reemplaza con tu imagen de fondo */
+    background-image: image-set(
+        url('images/hero_background.webp') type('image/webp'),
+        url('images/hero_background.jpg') type('image/jpeg')
+    );
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     color: var(--white-color);
     text-align: center;
     padding: 100px 20px 80px;
     position: relative;
 }
 
-.hero::before { /* Overlay para mejorar la legibilidad del texto */
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
 
-.hero > * { /* Asegura que el contenido esté por encima del overlay */
+.hero > * {
     position: relative;
     z-index: 1;
 }
-
 
 /* Navbar */
 .navbar {
@@ -73,8 +118,8 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el nav */
-    position: absolute; /* Para que quede encima del hero */
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -90,8 +135,10 @@ img {
 }
 
 .navbar .logo img {
-    height: 40px; /* Tamaño de tu logo */
+    height: 40px;
+    width: 40px;
     margin-right: 10px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -112,18 +159,51 @@ img {
     color: var(--secondary-color);
 }
 
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.menu-toggle-bar {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 /* Hero Content */
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 50px; /* Espacio debajo del nav */
+    padding-top: 50px;
 }
 
 .hero-content h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
@@ -132,7 +212,7 @@ img {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Botones */
@@ -168,7 +248,7 @@ img {
 }
 
 .whatsapp-btn {
-    background-color: #25D366; /* Color de WhatsApp */
+    background-color: #25D366;
     color: var(--white-color);
     border: none;
     display: flex;
@@ -185,8 +265,9 @@ img {
 
 .whatsapp-icon {
     height: 24px;
+    width: 24px;
     margin-right: 10px;
-    filter: brightness(0) invert(1); /* Para que el icono sea blanco */
+    filter: brightness(0) invert(1);
 }
 
 /* Secciones generales */
@@ -212,6 +293,8 @@ section h2 {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
 }
 
 .service-card {
@@ -249,7 +332,8 @@ section h2 {
     color: var(--text-color);
 }
 
-.service-card .icon-check { /* Placeholder para un ícono de check */
+.service-card .icon-check {
+    flex-shrink: 0;
     width: 18px;
     height: 18px;
     background-color: var(--secondary-color);
@@ -261,11 +345,10 @@ section h2 {
     font-size: 0.8em;
     margin-right: 10px;
 }
-/* Para el ícono de check, si no usas Font Awesome, puedes usar un simple ✓ */
+
 .service-card .icon-check::before {
     content: '✓';
 }
-
 
 .cta-message {
     font-size: 1.3em;
@@ -285,7 +368,6 @@ section h2 {
     margin-bottom: 30px;
 }
 
-
 /* Footer */
 footer {
     background-color: var(--primary-color);
@@ -301,34 +383,53 @@ footer p {
 
 /* Media Queries para Responsividad */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
     .navbar {
-        flex-direction: column;
+        flex-wrap: wrap;
         padding: 15px 20px;
     }
-    .navbar .logo {
-        margin-bottom: 15px;
-    }
+
     .nav-links {
+        display: none;
         flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 15px 0;
         margin-top: 10px;
+        border-radius: 5px;
     }
+
+    .nav-links.is-open {
+        display: flex;
+    }
+
     .nav-links li {
-        margin: 5px 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 20px;
     }
 
     .hero-content {
-        padding-top: 80px;
+        padding-top: 60px;
     }
 
     .hero-content h1 {
         font-size: 2.5em;
     }
+
     .hero-content p {
         font-size: 1em;
     }
 
     .services-grid {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+        grid-template-columns: 1fr;
     }
 
     .whatsapp-btn {
@@ -341,9 +442,11 @@ footer p {
     .hero-content h1 {
         font-size: 2em;
     }
+
     .hero-content p {
         font-size: 0.9em;
     }
+
     .btn {
         padding: 10px 20px;
         font-size: 0.9em;

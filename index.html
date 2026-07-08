@@ -5,18 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jayson Tech - Soluciones Digitales a tu Alcance</title>
     <meta name="description" content="Jayson Tech - Desarrollo web, automatización y capacitación tecnológica. Landing pages, tiendas online y sitios web desde $500.000 COP.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://jaysontech.com.co/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Jayson Tech - Soluciones Digitales a tu Alcance">
+    <meta property="og:description" content="Desarrollo web, automatización y capacitación tecnológica. Landing pages, tiendas online y sitios web desde $500.000 COP.">
+    <meta property="og:image" content="https://jaysontech.com.co/images/jaysontech_logo.png">
+    <meta property="og:url" content="https://jaysontech.com.co/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jayson Tech - Soluciones Digitales a tu Alcance">
+    <meta name="twitter:description" content="Desarrollo web, automatización y capacitación tecnológica. Proyectos eficientes y económicos.">
+    <meta name="twitter:image" content="https://jaysontech.com.co/images/jaysontech_logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> </head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Jayson Tech",
+        "url": "https://jaysontech.com.co",
+        "logo": "https://jaysontech.com.co/images/jaysontech_logo.png",
+        "description": "Desarrollo web, automatización y capacitación tecnológica. Landing pages, tiendas online y sitios web.",
+        "telephone": "+57-318-261-1489",
+        "areaServed": "CO",
+        "priceRange": "$$",
+        "sameAs": []
+    }
+    </script>
+</head>
 <body>
 
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
     <header class="hero">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Navegación principal">
             <div class="logo">
-                <img src="images/jaysontech_logo.png" alt="Jayson Tech Logo">
+                <picture>
+                    <source srcset="images/jaysontech_logo.webp" type="image/webp">
+                    <img src="images/jaysontech_logo.png" alt="Jayson Tech Logo" width="40" height="40" fetchpriority="high">
+                </picture>
                 <span>Jayson Tech</span>
             </div>
-            <ul class="nav-links">
+            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+                <span class="menu-toggle-bar" aria-hidden="true"></span>
+                <span class="menu-toggle-bar" aria-hidden="true"></span>
+                <span class="menu-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -28,69 +72,69 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="servicios" class="services-section">
             <h2>Nuestros Servicios</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <article class="service-card">
                     <h3>Landing Page (Página de Aterrizaje)</h3>
                     <p>Tu embudo de ventas digital. Diseño atractivo, captura de datos y ¡resultados rápidos! Desde $500.000 COP.</p>
                     <ul>
-                        <li><i class="icon-check"></i> Diseño optimizado para conversión</li>
-                        <li><i class="icon-check"></i> Formulario de contacto integrado</li>
-                        <li><i class="icon-check"></i> Rápida implementación</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Diseño optimizado para conversión</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Formulario de contacto integrado</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Rápida implementación</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
+                <article class="service-card">
                     <h3>Sitio Web Informativo Básico</h3>
                     <p>Tu carta de presentación digital. Hasta 5 secciones, fácil de actualizar y ¡presencia online! Desde $800.000 COP.</p>
                     <ul>
-                        <li><i class="icon-check"></i> Secciones personalizadas</li>
-                        <li><i class="icon-check"></i> Diseño responsive</li>
-                        <li><i class="icon-check"></i> Gestión de contenido sencilla</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Secciones personalizadas</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Diseño responsive</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Gestión de contenido sencilla</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
+                <article class="service-card">
                     <h3>Tienda Online Básica</h3>
                     <p>Empieza a vender tus productos online. Hasta 20 productos, pasarela de pagos segura y ¡vende sin límites! Desde $1.500.000 COP.</p>
                     <ul>
-                        <li><i class="icon-check"></i> Catálogo de productos</li>
-                        <li><i class="icon-check"></i> Carrito de compras</li>
-                        <li><i class="icon-check"></i> Integración con pasarelas de pago</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Catálogo de productos</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Carrito de compras</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Integración con pasarelas de pago</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
+                <article class="service-card">
                     <h3>Sitio Web enfocado a Reservas</h3>
                     <p>Sitio web con calendario para reservar citas. Desde $1.000.000 COP.</p>
                     <ul>
-                        <li><i class="icon-check"></i> Landing Page</li>
-                        <li><i class="icon-check"></i> Calendario para reservas</li>
-                        <li><i class="icon-check"></i> Recibe pago de las citas</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Landing Page</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Calendario para reservas</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Recibe pago de las citas</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
+                <article class="service-card">
                     <h3>Sitio Web enfocado a Inventario</h3>
                     <p>Sitio web con sistema de gestión de inventario. Desde $1.000.000 COP.</p>
                     <ul>
-                        <li><i class="icon-check"></i> Control de stock en tiempo real</li>
-                        <li><i class="icon-check"></i> Registro de Ventas</li>
-                        <li><i class="icon-check"></i> Ingreso de Productos</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Control de stock en tiempo real</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Registro de Ventas</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Ingreso de Productos</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
+                <article class="service-card">
                     <h3>Curso de Ofimática para Principiantes</h3>
                     <p>Domina Word, Excel en poco tiempo. Clases prácticas y ¡herramientas para tu día a día! Desde $150.000 COP por persona.</p>
                     <ul>
-                        <li><i class="icon-check"></i> Manejo básico de Office</li>
-                        <li><i class="icon-check"></i> Ejercicios prácticos</li>
-                        <li><i class="icon-check"></i> Aprendizaje rápido</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Manejo básico de Office</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Ejercicios prácticos</li>
+                        <li><span class="icon-check" aria-hidden="true"></span> Aprendizaje rápido</li>
                     </ul>
-                </div>
+                </article>
             </div>
             <p class="cta-message">¿Necesitas algo más específico? ¡Conversemos!</p>
             <a href="#contacto" class="btn secondary-btn">Hablemos de tu proyecto</a>
@@ -99,14 +143,18 @@
         <section id="contacto" class="contact-section">
             <h2>Contáctanos</h2>
             <p>Estamos listos para escuchar tus ideas y ayudarte a hacerlas realidad.</p>
-            <a href="https://wa.me/573182611489?text=Hola,%20quiero%20contratar%20un%20producto" target="_blank" class="btn whatsapp-btn">
-                <img src="images/whatsapp_icon.png" alt="WhatsApp Icon" class="whatsapp-icon"> Chatea con nosotros en WhatsApp
+            <a href="https://wa.me/573182611489?text=Hola,%20quiero%20contratar%20un%20producto" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn">
+                <picture>
+                    <source srcset="images/whatsapp_icon.webp" type="image/webp">
+                    <img src="images/whatsapp_icon.png" alt="" width="24" height="24" class="whatsapp-icon">
+                </picture>
+                Chatea con nosotros en WhatsApp
             </a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> Jayson Tech. Todos los derechos reservados.</p>
+        <p>&copy; <time id="current-year" datetime="2026">2026</time> Jayson Tech. Todos los derechos reservados.</p>
         <p>Diseñado y desarrollado por Jayson Tech.</p>
     </footer>
 
