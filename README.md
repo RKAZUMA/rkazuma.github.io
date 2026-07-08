@@ -37,6 +37,20 @@ python3 -m http.server 8000
 
 Luego visita `http://localhost:8000`.
 
+## Agregar un proyecto
+
+1. Coloca la imagen de presentación en `images/projects/` (JPG, PNG o WebP).
+2. Abre `projects.js` y añade una entrada al array:
+
+```javascript
+{
+    image: 'images/projects/mi-proyecto.jpg',
+    alt: 'Descripción breve del proyecto para accesibilidad'
+}
+```
+
+La imagen aparecerá automáticamente en la sección **Proyectos y Prototipos**. Si existe una versión `.webp` con el mismo nombre, se usará para mejor rendimiento.
+
 ## Contacto
 
 WhatsApp: [+57 318 261 1489](https://wa.me/573182611489)
