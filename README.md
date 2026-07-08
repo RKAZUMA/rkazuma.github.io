@@ -10,11 +10,13 @@ Sitio web de presentación de **Jayson Tech** — desarrollo web, automatizació
 ├── index.html          # Página principal
 ├── style.css           # Estilos
 ├── script.js           # Interactividad (menú móvil, año dinámico)
+├── projects.js         # Lista de proyectos (solo imagen + descripción)
 ├── 404.html            # Página de error personalizada
 ├── CNAME               # Dominio personalizado (GitHub Pages)
 ├── robots.txt          # Directivas para buscadores
 ├── sitemap.xml         # Mapa del sitio
-└── images/             # Recursos gráficos (JPG, PNG, WebP)
+└── images/
+    └── projects/       # Imágenes de presentación de proyectos
 ```
 
 ## Despliegue en GitHub Pages

@@ -357,9 +357,120 @@ section h2 {
     color: var(--primary-color);
 }
 
+/* Sección de Proyectos */
+.projects-section {
+    background-color: var(--light-gray);
+}
+
+.projects-intro {
+    max-width: 600px;
+    margin: -20px auto 40px;
+    color: var(--dark-gray);
+    font-size: 1.1em;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
+}
+
+.project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background-color: var(--white-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.project-card-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.project-card-button img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Lightbox */
+.project-lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.project-lightbox[hidden] {
+    display: none;
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 2.5em;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.lightbox-close:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.lightbox-content {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox-content figcaption {
+    color: var(--white-color);
+    text-align: center;
+    margin-top: 16px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
 /* Sección de Contacto */
 .contact-section {
-    background-color: var(--light-gray);
+    background-color: var(--white-color);
     padding-bottom: 80px;
 }
 
@@ -429,6 +540,10 @@ footer p {
     }
 
     .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 
