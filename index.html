@@ -143,16 +143,34 @@
 
         <section id="proyectos" class="projects-section">
             <h2>Proyectos y Prototipos</h2>
-            <p class="projects-intro">Algunos de los proyectos que hemos desarrollado. Haz clic en una imagen para verla en detalle.</p>
-            <div class="projects-grid" id="projects-grid"></div>
+            <p class="projects-intro">Algunos de los proyectos que hemos desarrollado. Desliza o usa las flechas para explorar. Haz clic en una imagen para verla en detalle.</p>
+            <div class="projects-carousel" aria-roledescription="carousel" aria-label="Galería de proyectos">
+                <button type="button" class="carousel-btn carousel-prev" aria-label="Proyecto anterior">
+                    <span aria-hidden="true">&#10094;</span>
+                </button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="projects-grid"></div>
+                </div>
+                <button type="button" class="carousel-btn carousel-next" aria-label="Proyecto siguiente">
+                    <span aria-hidden="true">&#10095;</span>
+                </button>
+                <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Indicadores del carrusel"></div>
+            </div>
         </section>
 
         <div id="project-lightbox" class="project-lightbox" hidden role="dialog" aria-modal="true" aria-label="Vista ampliada del proyecto">
             <button type="button" class="lightbox-close" aria-label="Cerrar vista ampliada">&times;</button>
+            <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior">
+                <span aria-hidden="true">&#10094;</span>
+            </button>
             <figure class="lightbox-content">
                 <img id="lightbox-image" src="" alt="">
                 <figcaption id="lightbox-caption"></figcaption>
+                <p class="lightbox-counter" id="lightbox-counter" aria-live="polite"></p>
             </figure>
+            <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente">
+                <span aria-hidden="true">&#10095;</span>
+            </button>
         </div>
 
         <section id="contacto" class="contact-section">
