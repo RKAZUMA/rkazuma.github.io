@@ -13,6 +13,14 @@ const projects = [
     {
         image: 'images/projects/saratex-inventario-dashboard.jpg',
         alt: 'SARATEX S.A.S - Dashboard de gestión de inventario de telas con control de stock en tiempo real'
+    },
+    {
+        image: 'images/projects/marco-barbershop-reserva.jpg',
+        alt: 'MARCO Barber Shop - Reserva de citas en línea: selección de servicio, fecha, hora y confirmación por WhatsApp'
+    },
+    {
+        image: 'images/projects/marco-barbershop-citas.jpg',
+        alt: 'MARCO Barber Shop CITAS - Sistema de gestión de citas con dashboard, calendario y control de barberos'
     }
 ];
 
