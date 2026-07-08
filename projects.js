@@ -21,6 +21,38 @@ const projects = [
     {
         image: 'images/projects/marco-barbershop-citas.jpg',
         alt: 'MARCO Barber Shop CITAS - Sistema de gestión de citas con dashboard, calendario y control de barberos'
+    },
+    {
+        image: 'images/projects/sabores-valle-catalogo.jpg',
+        alt: 'Sabores del Valle - Catálogo digital interactivo con productos, fotos, precios y carrito de compras'
+    },
+    {
+        image: 'images/projects/sabores-valle-whatsapp.jpg',
+        alt: 'Sabores del Valle - Pedidos por WhatsApp: mensaje estructurado automático con detalle del carrito al negocio'
+    },
+    {
+        image: 'images/projects/cotizapro-cotizador.jpg',
+        alt: 'CotizaPro - Generador de cotizaciones con selección de clientes, servicios e impuestos automáticos'
+    },
+    {
+        image: 'images/projects/cotizapro-pdf-analytics.jpg',
+        alt: 'CotizaPro - PDF proforma con diseño corporativo y panel de tasa de aprobación de cotizaciones'
+    },
+    {
+        image: 'images/projects/flotaviva-dashboard.jpg',
+        alt: 'FlotaViva - Control de flotas con registro de vehículos y alertas de vencimiento de documentos legales'
+    },
+    {
+        image: 'images/projects/flotaviva-mantenimiento.jpg',
+        alt: 'FlotaViva - Historial de mantenimientos preventivos y correctivos con gráfico de consumo de gasolina'
+    },
+    {
+        image: 'images/projects/horizonte-landing.jpg',
+        alt: 'Estudio Horizonte Arquitectura - Página web de presentación con portafolio de casas y edificios'
+    },
+    {
+        image: 'images/projects/horizonte-servicios.jpg',
+        alt: 'Estudio Horizonte Arquitectura - Servicios de análisis, diseño arquitectónico y construcción'
     }
 ];
 
