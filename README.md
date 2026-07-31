@@ -53,4 +53,4 @@ La imagen aparecerá automáticamente en la sección **Proyectos y Prototipos**.
 
 ## Contacto
 
-WhatsApp: [+57 318 261 1489](https://wa.me/573182611489)
+WhatsApp: [@jayson_ricardo](https://wa.me/jayson_ricardo?text=Hola,%20quiero%20contratar%20un%20producto)
