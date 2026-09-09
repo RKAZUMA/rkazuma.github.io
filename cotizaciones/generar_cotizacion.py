@@ -10,6 +10,13 @@ CLIENTE = "Arquitectura 360 S.A.S"
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
+PRECIO_DESARROLLO = 350_000
+PRECIO_HOSTING = 100_000
+PRECIO_DOMINIO_MIN = 70_000
+PRECIO_DOMINIO_MAX = 120_000
+TOTAL_MIN = PRECIO_DESARROLLO + PRECIO_HOSTING + PRECIO_DOMINIO_MIN
+TOTAL_MAX = PRECIO_DESARROLLO + PRECIO_HOSTING + PRECIO_DOMINIO_MAX
+
 PRIMARY = (44, 62, 80)
 SECONDARY = (52, 152, 219)
 TEXT = (51, 51, 51)
@@ -68,7 +75,7 @@ def generar():
     pdf.set_y(48)
     pdf.set_text_color(*TEXT)
     pdf.set_font("DejaVu", "B", 11)
-    pdf.cell(95, 7, f"No. JT-2026-0909")
+    pdf.cell(95, 7, "No. JT-2026-0909")
     pdf.cell(0, 7, f"Fecha: {date.today().strftime('%d/%m/%Y')}", align="R")
     pdf.ln(10)
 
@@ -137,22 +144,12 @@ def generar():
     pdf.ln()
 
     rows = [
+        ("Desarrollo Landing Page", "Pago único", money(PRECIO_DESARROLLO), False),
+        ("Hosting anual", "Primer año (12 meses)", money(PRECIO_HOSTING), False),
         (
-            "Desarrollo Landing Page",
-            "Diseño + desarrollo + formulario",
-            money(350_000),
-            False,
-        ),
-        (
-            "Hosting anual",
-            "Alojamiento web 12 meses",
-            money(100_000),
-            False,
-        ),
-        (
-            "Dominio anual",
-            "Registro .com / .com.co *",
-            f"{money(70_000)} – {money(120_000)}",
+            "Dominio anual *",
+            "Primer año",
+            f"{money(PRECIO_DOMINIO_MIN)} – {money(PRECIO_DOMINIO_MAX)}",
             True,
         ),
     ]
@@ -162,41 +159,61 @@ def generar():
     for i, (concept, detail, value, variable) in enumerate(rows):
         fill = i % 2 == 1
         pdf.set_fill_color(*LIGHT if fill else (255, 255, 255))
-        y0 = pdf.get_y()
         pdf.cell(95, 10, f"  {concept}", fill=True)
         pdf.cell(55, 10, detail, fill=True, align="C")
-        pdf.set_font("DejaVu", "B" if not variable else "", 10)
+        pdf.set_font("DejaVu", "" if variable else "B", 10)
         pdf.cell(36, 10, f"{value}  ", fill=True, align="R")
         pdf.set_font("DejaVu", "", 10)
         pdf.ln()
 
-    pdf.ln(6)
+    pdf.ln(4)
 
-    # Totals box
-    pdf.set_fill_color(235, 245, 251)
-    pdf.rect(105, pdf.get_y(), 96, 28, "F")
-    y = pdf.get_y() + 5
-    pdf.set_xy(110, y)
+    # Totals table
+    pdf.set_font("DejaVu", "B", 11)
+    pdf.set_text_color(*PRIMARY)
+    pdf.cell(0, 7, "Resumen de inversión inicial (primer año)")
+    pdf.ln(8)
+
+    totals = [
+        ("Desarrollo Landing Page", money(PRECIO_DESARROLLO), False),
+        ("Hosting (1er año)", money(PRECIO_HOSTING), False),
+        ("Dominio (1er año)", f"{money(PRECIO_DOMINIO_MIN)} – {money(PRECIO_DOMINIO_MAX)}", False),
+        ("TOTAL INVERSIÓN INICIAL", f"{money(TOTAL_MIN)} – {money(TOTAL_MAX)}", True),
+    ]
+
+    pdf.set_fill_color(*LIGHT)
     pdf.set_font("DejaVu", "B", 10)
     pdf.set_text_color(*PRIMARY)
-    pdf.cell(50, 6, "Inversión inicial estimada:")
-    pdf.ln(7)
-    pdf.set_x(110)
+    pdf.cell(120, 8, "  Concepto", fill=True)
+    pdf.cell(66, 8, "Valor (COP)", fill=True, align="R")
+    pdf.ln()
+
+    for label, value, is_total in totals:
+        if is_total:
+            pdf.set_fill_color(235, 245, 251)
+            pdf.set_font("DejaVu", "B", 11)
+            pdf.set_text_color(*SECONDARY)
+        else:
+            pdf.set_fill_color(255, 255, 255)
+            pdf.set_font("DejaVu", "", 10)
+            pdf.set_text_color(*TEXT)
+
+        pdf.cell(120, 9, f"  {label}", fill=True)
+        pdf.cell(66, 9, f"{value}  ", fill=True, align="R")
+        pdf.ln()
+
+    pdf.ln(6)
+
     pdf.set_font("DejaVu", "", 9)
     pdf.set_text_color(*TEXT)
-    pdf.cell(50, 6, "Mínimo (dominio económico):")
-    pdf.set_font("DejaVu", "B", 11)
-    pdf.set_text_color(*SECONDARY)
-    pdf.cell(41, 6, money(520_000), align="R")
-    pdf.ln(7)
-    pdf.set_x(110)
-    pdf.set_font("DejaVu", "", 9)
-    pdf.set_text_color(*TEXT)
-    pdf.cell(50, 6, "Máximo (dominio premium):")
-    pdf.set_font("DejaVu", "B", 11)
-    pdf.set_text_color(*SECONDARY)
-    pdf.cell(41, 6, money(570_000), align="R")
-    pdf.ln(14)
+    pdf.multi_cell(
+        0,
+        5,
+        f"Cálculo: {money(PRECIO_DESARROLLO)} + {money(PRECIO_HOSTING)} + dominio "
+        f"({money(PRECIO_DOMINIO_MIN)} a {money(PRECIO_DOMINIO_MAX)}) = "
+        f"{money(TOTAL_MIN)} a {money(TOTAL_MAX)} COP.",
+    )
+    pdf.ln(6)
 
     # Notes
     pdf.set_font("DejaVu", "B", 11)
@@ -206,7 +223,7 @@ def generar():
 
     notes = [
         "* El costo del dominio varía entre $70.000 y $120.000 COP anuales, según disponibilidad y extensión del nombre elegido (.com, .com.co, etc.).",
-        "Renovación anual: hosting ($100.000) + dominio ($70.000 – $120.000) deben renovarse cada año para mantener el sitio en línea.",
+        f"Renovación anual (a partir del 2.° año): hosting ({money(PRECIO_HOSTING)}) + dominio ({money(PRECIO_DOMINIO_MIN)} – {money(PRECIO_DOMINIO_MAX)}). El desarrollo es pago único.",
         "El desarrollo incluye una (1) ronda de ajustes menores posteriores a la entrega.",
         "Contenido (textos, fotos de proyectos y logo del cliente) suministrado por el contratante.",
         "Tiempo estimado de entrega: 5 a 10 días hábiles después de recibir el contenido.",
@@ -237,6 +254,8 @@ def generar():
 
     pdf.output(OUTPUT)
     print(OUTPUT)
+    print(f"Total mínimo: {money(TOTAL_MIN)}")
+    print(f"Total máximo: {money(TOTAL_MAX)}")
 
 
 if __name__ == "__main__":
