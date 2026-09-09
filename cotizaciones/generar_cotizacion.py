@@ -140,7 +140,7 @@ def generar():
         (
             "Desarrollo Landing Page",
             "Diseño + desarrollo + formulario",
-            money(250_000),
+            money(350_000),
             False,
         ),
         (
@@ -187,7 +187,7 @@ def generar():
     pdf.cell(50, 6, "Mínimo (dominio económico):")
     pdf.set_font("DejaVu", "B", 11)
     pdf.set_text_color(*SECONDARY)
-    pdf.cell(41, 6, money(420_000), align="R")
+    pdf.cell(41, 6, money(520_000), align="R")
     pdf.ln(7)
     pdf.set_x(110)
     pdf.set_font("DejaVu", "", 9)
@@ -195,7 +195,7 @@ def generar():
     pdf.cell(50, 6, "Máximo (dominio premium):")
     pdf.set_font("DejaVu", "B", 11)
     pdf.set_text_color(*SECONDARY)
-    pdf.cell(41, 6, money(470_000), align="R")
+    pdf.cell(41, 6, money(570_000), align="R")
     pdf.ln(14)
 
     # Notes
